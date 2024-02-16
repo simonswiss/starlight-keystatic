@@ -1,0 +1,41 @@
+{
+  "sections": [
+    {
+      "label": "Guides",
+      "kind": {
+        "discriminant": "items",
+        "value": [
+          {
+            "label": "Example Guide",
+            "link": "/example-guide"
+          }
+        ]
+      }
+    },
+    {
+      "label": "Reference",
+      "kind": {
+        "discriminant": "autogenerate",
+        "value": {
+          "directory": "reference"
+        }
+      }
+    },
+    {
+      "label": "Hello",
+      "kind": {
+        "discriminant": "items",
+        "value": [
+          {
+            "label": "How are you?",
+            "link": "https://keystatic.com"
+          },
+          {
+            "label": "I am good, thanks!",
+            "link": "https://simonswiss.com"
+          }
+        ]
+      }
+    }
+  ]
+}
