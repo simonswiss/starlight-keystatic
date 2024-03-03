@@ -1,6 +1,5 @@
 import { collection, config, fields, singleton } from '@keystatic/core'
 import { repeating, wrapper } from '@keystatic/core/content-components'
-import { __experimental_mdx_field } from '@keystatic/core/form/fields/markdoc'
 
 import { z } from 'zod'
 import { docsSchema } from '@astrojs/starlight/schema'
@@ -83,7 +82,7 @@ export default config({
           },
           { label: 'Hero' }
         ),
-        content: __experimental_mdx_field({
+        content: fields.markdoc({
           label: 'Content',
           components: {
             CardGrid: repeating({
