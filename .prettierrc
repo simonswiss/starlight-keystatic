@@ -1,0 +1,37 @@
+{
+  "overrides": [
+    {
+      "files": "*.svg",
+      "options": {
+        "parser": "html"
+      }
+    },
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    },
+    {
+        "files": [".*", "*.json", "*.md", "*.toml", "*.yml"],
+        "options": {
+          "useTabs": false
+        }
+      },
+      {
+        "files": ["*.md", "*.mdx"],
+        "options": {
+          "printWidth": 80
+        }
+    }
+  ],
+    "useTabs": true,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "semi": false,
+    "printWidth": 120,
+    "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+    "pluginSearchDirs": false,
+    "tailwindFuctions": ["cx"]
+}

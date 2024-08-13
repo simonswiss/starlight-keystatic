@@ -1,0 +1,5 @@
+defaults
+last 2 version
+not dead
+maintained node versions
+>= 0.25%

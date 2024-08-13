@@ -3,25 +3,58 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev --host 127.0.0.1",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
+    "editorconfig": "editorconfig-checker -exclude \"**/node_modules/**\"",
+    "browserslist:update": "bunx update-browserslist-db@latest",
+    "dev": "bunx --bun astro dev --host 127.0.0.1",
+    "start": "bun astro check --verbose && bunx --bun astro dev --verbose",
+    "build": "bun astro check --verbose && bunx --bun astro build",
+    "preview": "bunx --bun astro preview",
+    "format": "biome format . --write",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --apply",
+    "lint:fix:unsafe": "biome lint . --apply-unsafe",
+    "biomes": "bunx @biomejs/biome check --write .",
+    "biomes:fix": "bunx @biomejs/biome check --fix --unsafe .",
+    "tailwind:cli": "bunx @tailwindcss/cli@next -i ./src/styles/tailwind.css -o ./src/styles/dist/tailwind.css",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.4",
-    "@astrojs/react": "^3.0.10",
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/sitemap": "^3.1.6",
     "@astrojs/starlight": "^0.18.1",
     "@keystatic/astro": "^5.0.0",
-    "@keystatic/core": "^0.5.0",
-    "@types/react": "^18.2.55",
-    "@types/react-dom": "^18.2.19",
-    "astro": "^4.3.4",
+    "@keystatic/core": "^0.5.32",
+    "@tailwindcss/cli": "^4.0.0-alpha.19",
+    "@tailwindcss/postcss": "^4.0.0-alpha.19",
+    "@tailwindcss/vite": "^4.0.0-alpha.19",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.13.3",
     "astro-auto-import": "^0.4.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sharp": "^0.32.5",
-    "typescript": "^5.3.3"
-  }
+    "caniuse-lite": "^1.0.30001651",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.32.6",
+    "tailwindcss": "^4.0.0-alpha.19",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18.19.1 <19 || >=20.15.1 <21 || >=22.6.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@types/bun": "latest",
+    "@types/html": "^1.0.4",
+    "@types/node": "^22.2.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "editorconfig-checker": "^5.1.8",
+    "unplugin-auto-import": "^0.18.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "trustedDependencies": ["@biomejs/biome", "esbuild", "sharp"]
 }

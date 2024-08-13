@@ -1,15 +1,15 @@
 import { collection, config, fields, singleton } from '@keystatic/core'
 import { repeating, wrapper } from '@keystatic/core/content-components'
 
-import { z } from 'zod'
-import { docsSchema } from '@astrojs/starlight/schema'
+import type { docsSchema } from '@astrojs/starlight/schema'
+import type { z } from 'zod'
 
 // Dodgy but works...
 import { Icons } from 'node_modules/@astrojs/starlight/components/Icons'
 
 const iconsList = Object.keys(Icons).map((icon) => ({
   label: icon,
-  value: icon,
+  value: icon
 }))
 
 type StarlightSchema = z.input<ReturnType<ReturnType<typeof docsSchema>>>
@@ -18,12 +18,12 @@ type Hero = StarlightSchema['hero']
 
 export default config({
   storage: {
-    kind: 'local',
+    kind: 'local'
   },
   ui: {
     brand: {
-      name: 'Starlight',
-    },
+      name: 'Starlight'
+    }
   },
   collections: {
     docs: collection({
@@ -31,7 +31,7 @@ export default config({
       path: 'src/content/docs/**',
       slugField: 'title',
       format: {
-        contentField: 'content',
+        contentField: 'content'
       },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
@@ -40,9 +40,9 @@ export default config({
           label: 'Template',
           options: [
             { label: 'Doc', value: 'doc' },
-            { label: 'Splash', value: 'splash' },
+            { label: 'Splash', value: 'splash' }
           ],
-          defaultValue: 'doc',
+          defaultValue: 'doc'
         }),
         hero: fields.object(
           {
@@ -52,8 +52,8 @@ export default config({
               file: fields.image({
                 label: 'Image',
                 directory: 'src/assets',
-                publicPath: '@assets',
-              }),
+                publicPath: '@assets'
+              })
             }),
             actions: fields.array(
               fields.object({
@@ -62,23 +62,23 @@ export default config({
                 icon: fields.select({
                   label: 'Icon',
                   options: iconsList,
-                  defaultValue: iconsList[0].value,
+                  defaultValue: iconsList[0].value
                 }),
                 variant: fields.select({
                   label: 'Variant',
                   options: [
                     { label: 'Primary', value: 'primary' },
                     { label: 'Secondary', value: 'secondary' },
-                    { label: 'Minimal', value: 'minimal' },
+                    { label: 'Minimal', value: 'minimal' }
                   ],
-                  defaultValue: 'minimal',
-                }),
+                  defaultValue: 'minimal'
+                })
               }),
               {
                 label: 'Actions',
-                itemLabel: (data) => data.fields.text.value,
+                itemLabel: (data) => data.fields.text.value
               }
-            ),
+            )
           },
           { label: 'Hero' }
         ),
@@ -91,9 +91,9 @@ export default config({
               schema: {
                 stagger: fields.checkbox({
                   label: 'Stagger',
-                  description: 'Check to stagger the cards',
-                }),
-              },
+                  description: 'Check to stagger the cards'
+                })
+              }
             }),
             Card: wrapper({
               label: 'Card',
@@ -102,21 +102,21 @@ export default config({
                 icon: fields.select({
                   label: 'Icon',
                   options: iconsList,
-                  defaultValue: iconsList[0].value,
-                }),
-              },
-            }),
-          },
-        }),
-      },
-    }),
+                  defaultValue: iconsList[0].value
+                })
+              }
+            })
+          }
+        })
+      }
+    })
   },
   singletons: {
     sidebar: singleton({
       label: 'Sidebar',
       path: 'src/data/sidebar',
       format: {
-        data: 'json',
+        data: 'json'
       },
       schema: {
         sections: fields.array(
@@ -127,30 +127,30 @@ export default config({
                 label: 'Kind',
                 options: [
                   { label: 'Items', value: 'items' },
-                  { label: 'Autogenerate', value: 'autogenerate' },
+                  { label: 'Autogenerate', value: 'autogenerate' }
                 ],
-                defaultValue: 'items',
+                defaultValue: 'items'
               }),
               {
                 items: fields.array(
                   fields.object({
                     label: fields.text({ label: 'Label' }),
-                    link: fields.text({ label: 'Link' }),
+                    link: fields.text({ label: 'Link' })
                   }),
                   {
                     label: 'Items',
-                    itemLabel: (data) => data.fields.label.value,
+                    itemLabel: (data) => data.fields.label.value
                   }
                 ),
                 autogenerate: fields.object({
-                  directory: fields.text({ label: 'Directory' }),
-                }),
+                  directory: fields.text({ label: 'Directory' })
+                })
               }
-            ),
+            )
           }),
           { label: 'Links', itemLabel: (data) => data.fields.label.value }
-        ),
-      },
-    }),
-  },
+        )
+      }
+    })
+  }
 })

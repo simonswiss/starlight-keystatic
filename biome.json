@@ -1,0 +1,83 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "files": {
+    "ignore": ["./dist", ".astro", "node_modules"],
+    "ignoreUnknown": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "tab",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 120,
+    "attributePosition": "auto",
+    "ignore": [
+      "node_modules/**",
+      "**/.astro/",
+      "**/node_modules/",
+      "**/package-lock.json",
+      "**/dist/",
+      "**/bun.lockb",
+      "**/dist",
+      "**/node_modules",
+      "**/vercel.json",
+      "**/.astro",
+      "**/.husky",
+      "**/*-lock.*",
+      "**/__coverage__",
+      "**/.changeset",
+      "**/.github",
+      "**/pnpm-lock.yaml",
+      "**/*.md",
+      "**/*.mdx"
+    ]
+  },
+  "organizeImports": { "enabled": true },
+  "linter": {
+    "rules": {
+      "a11y": { "recommended": true },
+      "complexity": { "recommended": true },
+      "correctness": { "recommended": true },
+      "nursery": { "recommended": true },
+      "performance": { "recommended": true },
+      "security": { "recommended": true },
+      "style": { "recommended": true },
+      "suspicious": { "recommended": true }
+    },
+    "ignore": []
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "none",
+      "semicolons": "asNeeded",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto"
+    },
+    "parser": { "unsafeParameterDecoratorsEnabled": true }
+  },
+  "json": {
+    "parser": { "allowComments": true },
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 80
+    }
+  },
+  "extends": [],
+  "overrides": [
+    { "include": ["*.svg"] },
+    { "include": ["*.astro"] },
+    {
+      "include": [".*", "*.json", "*.md", "*.toml", "*.yml"],
+      "formatter": { "indentStyle": "space" }
+    },
+    { "include": ["*.md", "*.mdx"], "formatter": { "lineWidth": 80 } }
+  ]
+}
